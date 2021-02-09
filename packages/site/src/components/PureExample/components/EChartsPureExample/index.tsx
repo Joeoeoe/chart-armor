@@ -38,10 +38,10 @@ const EChartsPureExample: FC<{ data: any }> = function ({ data }) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        {!data ? (
-          <Loading />
-        ) : (
+        {data ? (
           <div ref={chartRef} style={{ width: CHART_WIDTH, height: CHART_HEIGHT }}></div>
+        ) : (
+          <Loading />
         )}
       </div>
     </div>

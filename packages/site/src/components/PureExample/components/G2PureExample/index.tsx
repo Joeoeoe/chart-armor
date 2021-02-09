@@ -36,7 +36,7 @@ const G2PureExample: FC<{ data: any }> = function ({ data }) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        {!data ? <Loading /> : <div ref={chartRef} />}
+        {data ? <div ref={chartRef} /> : <Loading />}
       </div>
     </div>
   );

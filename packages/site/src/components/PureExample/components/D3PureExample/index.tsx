@@ -67,7 +67,7 @@ const D3PureExample: FC<{ data: any }> = function ({ data }) {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        {!data ? <Loading /> : <svg ref={chartRef}></svg>}
+        {data ? <svg ref={chartRef}></svg> : <Loading />}
       </div>
     </div>
   );
