@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>d3 playground</title>
+    <script src="./d3.v6.js"></script>
+  </head>
+  <body>
+    <svg class="pie-svg"></svg>
+
+    <script>
+      const data = [
+        {
+          name: "A",
+          percentage: 30,
+        },
+        {
+          name: "B",
+          percentage: 20,
+        },
+        {
+          name: "C",
+          percentage: 30,
+        },
+        {
+          name: "D",
+          percentage: 20,
+        },
+      ];
+      const width = 800,
+        height = 500,
+        radius = Math.min(width, height) / 2 - 10;
+
+
+      // 插入g容器
+      const g = d3
+        .select(".pie-svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`); //图形左上角相对画布偏移
+
+
+      // 颜色尺
+      const color = d3
+        .scaleOrdinal()
+        .range(["#b3e2cd", "#fdcdac", "#cbd5e8", "#f4cae4", "#e6f5c9"]);
+
+
+      const pie = d3.pie();
+      pie.value(function (d) {
+        return d.percentage;
+      });
+      const pieData = pie(data);
+
+      const arc = d3.arc();
+      arc.outerRadius(radius);
+      arc.innerRadius(0);
+
+
+      // 绑定数据，在g容器中插入g
+      const groups = g.selectAll("g").data(pieData).enter().append("g");
+
+      // 画path
+      groups
+        .append("path")
+        .attr("d", arc) //将pieData[i]传予arc
+        .style("fill", (d) => color(d.data.name));
+        
+      // 画text
+      groups
+        .append("text")
+        .text((d) => d.data.name)
+        .attr("transform", (d) => `translate(${arc.centroid(d)})`)
+        .attr("dy", ".35em")
+        .style("text-anchor", "middle")
+        .style("font-size", "20px");
+    </script>
+  </body>
+</html>
