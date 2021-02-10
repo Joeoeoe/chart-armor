@@ -1,7 +1,3 @@
-import React from 'react';
+import ChartArmor from './ChartArmor';
 
-const Test = function () {
-  return <h1>test</h1>;
-};
-
-export default Test;
+export default ChartArmor;

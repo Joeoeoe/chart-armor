@@ -1,3 +1,2 @@
-/// <reference types="react" />
-declare const Test: () => JSX.Element;
-export default Test;
+import ChartArmor from './ChartArmor';
+export default ChartArmor;
