@@ -6,6 +6,7 @@ import G2PlotPureExample from './components/G2PlotPureExample';
 import G2PureExample from './components/G2PureExample';
 import HighchartsPureExample from './components/HighchartsPureExample';
 import styles from './index.module.less';
+import ChartArmor from 'chart-armor';
 
 const RawExample = function () {
   // d3 mock数据
@@ -184,6 +185,8 @@ const RawExample = function () {
             return <HighchartsPureExample data={data} key={i} />;
           })}
         </div>
+
+        <ChartArmor />
       </div>
     </Fragment>
   );

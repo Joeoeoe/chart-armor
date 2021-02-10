@@ -130,6 +130,7 @@ module.exports = {
     // 别名
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      'react': path.resolve('node_modules', 'react'),
     },
   },
 };
