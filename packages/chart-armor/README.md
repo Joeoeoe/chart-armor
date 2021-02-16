@@ -1,4 +1,9 @@
-# 依赖
-devDependencies：typescript、eslint集合、prettier集合
+# 理想使用方式
+1. 复制粘贴原生代码，传入data即可在React中渲染图表。data格式与原生代码匹配
+2. 封装好loading，并开放接口支持自定义
 
-peerDependencies：react
+# props
+| props      | 是否必填 | 解释                                                |
+| ---------- | -------- | --------------------------------------------------- |
+| render     | 是       | (ref, data) => { render code} 。渲染图表代码        |
+| loadingCom | 否       | 自定义loading组件，无数据时边框大小由loadingCom决定 |

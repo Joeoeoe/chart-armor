@@ -1,3 +1,4 @@
-/// <reference types="react" />
-declare const ChartArmor: () => JSX.Element;
+import { FC } from 'react';
+import { IChartArmorProps } from './types';
+declare const ChartArmor: FC<IChartArmorProps>;
 export default ChartArmor;

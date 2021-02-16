@@ -7,6 +7,7 @@ import G2PureExample from './components/G2PureExample';
 import HighchartsPureExample from './components/HighchartsPureExample';
 import styles from './index.module.less';
 import ChartArmor from 'chart-armor';
+import ChartArmorExample from './components/ChartArmorExample';
 
 const RawExample = function () {
   // d3 mock数据
@@ -19,6 +20,8 @@ const RawExample = function () {
   const [g2PlotDataList, setG2PlotDataList] = useState(new Array(2).fill(null));
   // Highcharts mock数据
   const [highchartsDataList, setHighchartsDataList] = useState(new Array(2).fill(null));
+  // ChartArmor mock数据
+  const [chartArmorDataList, setChartArmorDataList] = useState(new Array(2).fill(null));
   useEffect(() => {
     const fetchData = async function () {
       await mockLoading();
@@ -141,6 +144,17 @@ const RawExample = function () {
           ],
         },
       ]);
+
+      setChartArmorDataList([
+        {
+          dataX: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+          dataY: [5, 20, 36, 10, 10, 20],
+        },
+        {
+          dataX: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+          dataY: [5, 20, 36, 10, 10, 20],
+        },
+      ]);
     };
 
     fetchData();
@@ -186,7 +200,12 @@ const RawExample = function () {
           })}
         </div>
 
-        <ChartArmor />
+        <div className={styles['chart-wrapper']}>
+          <h2>ChartArmor</h2>
+          {chartArmorDataList.map((data, i) => {
+            return <ChartArmorExample data={data} key={i} />;
+          })}
+        </div>
       </div>
     </Fragment>
   );
