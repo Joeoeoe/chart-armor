@@ -16,9 +16,6 @@ const ChartArmor: FC<IChartArmorProps> = function ({ render, data, loadingCom })
         style={{
           width: CHART_WIDTH,
           height: CHART_HEIGHT,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
         }}>
         {data ? (
           <div ref={chartRef} style={{ width: CHART_WIDTH, height: CHART_HEIGHT }} />
