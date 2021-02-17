@@ -6,7 +6,6 @@ const ChartArmorExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
       render={(dom, data) => {
-        console.log(dom);
         const chart = echarts.init(dom);
         chart.setOption({
           title: {

@@ -9,7 +9,7 @@
 | loadingCom | 否       | 自定义loading组件，无数据时边框大小由loadingCom决定 |
 
 # TODO
-- [ ] 宽度与高度规划
+- [x] 宽度与高度规划
 - [ ] 自定义LoadingCom支持
 - [x] 使用dom，而不是使用ref.current
 - [ ] 文档编写
