@@ -5,8 +5,9 @@ import * as echarts from 'echarts';
 const ChartArmorExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
-      render={(ref, data) => {
-        const chart = echarts.init(ref.current);
+      render={(dom, data) => {
+        console.log(dom);
+        const chart = echarts.init(dom);
         chart.setOption({
           title: {
             text: 'ECharts example',

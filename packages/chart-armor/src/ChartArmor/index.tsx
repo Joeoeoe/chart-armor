@@ -7,7 +7,7 @@ const ChartArmor: FC<IChartArmorProps> = function ({ render, data, loadingCom })
   const chartRef = useRef(null);
   useEffect(() => {
     if (data) {
-      render(chartRef, data);
+      render(chartRef.current, data);
     }
   }, [data]);
   return (

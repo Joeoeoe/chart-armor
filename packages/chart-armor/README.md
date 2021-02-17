@@ -12,5 +12,5 @@
 - [ ] 宽度与高度规划
 - [ ] 自定义LoadingCom支持
 - [ ] 上下左右外围支持
-- [ ] 使用dom，而不是使用ref.current
+- [x] 使用dom，而不是使用ref.current
 - [ ] 文档编写

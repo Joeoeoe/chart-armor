@@ -29,7 +29,7 @@ const ChartArmor = function ({ render, data, loadingCom }) {
     const chartRef = react_1.useRef(null);
     react_1.useEffect(() => {
         if (data) {
-            render(chartRef, data);
+            render(chartRef.current, data);
         }
     }, [data]);
     return (react_1.default.createElement("div", null,
