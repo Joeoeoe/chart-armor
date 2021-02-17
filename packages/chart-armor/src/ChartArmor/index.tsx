@@ -6,7 +6,7 @@ import { IChartArmorProps } from './types';
 const ChartArmor: FC<IChartArmorProps> = function ({
   render,
   data,
-  loadingCom,
+  loadingCom = <DefaultLoading />,
   width = DEFAULT_CHART_WIDTH,
   height = DEFAULT_CHART_HEIGHT,
 }) {
@@ -24,11 +24,7 @@ const ChartArmor: FC<IChartArmorProps> = function ({
           width: width,
           height: height,
         }}>
-        {data ? (
-          <div ref={chartRef} style={{ width: width, height: height }} />
-        ) : (
-          <DefaultLoading />
-        )}
+        {data ? <div ref={chartRef} style={{ width: width, height: height }} /> : loadingCom}
       </div>
     </div>
   );

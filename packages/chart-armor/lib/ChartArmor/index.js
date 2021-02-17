@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const DefaultLoading_1 = __importDefault(require("../DefaultLoading"));
 const constants_1 = require("./constants");
-const ChartArmor = function ({ render, data, loadingCom, width = constants_1.DEFAULT_CHART_WIDTH, height = constants_1.DEFAULT_CHART_HEIGHT, }) {
+const ChartArmor = function ({ render, data, loadingCom = react_1.default.createElement(DefaultLoading_1.default, null), width = constants_1.DEFAULT_CHART_WIDTH, height = constants_1.DEFAULT_CHART_HEIGHT, }) {
     const chartRef = react_1.useRef(null);
     react_1.useEffect(() => {
         if (data) {
@@ -36,7 +36,7 @@ const ChartArmor = function ({ render, data, loadingCom, width = constants_1.DEF
         react_1.default.createElement("div", { style: {
                 width: width,
                 height: height,
-            } }, data ? (react_1.default.createElement("div", { ref: chartRef, style: { width: width, height: height } })) : (react_1.default.createElement(DefaultLoading_1.default, null)))));
+            } }, data ? react_1.default.createElement("div", { ref: chartRef, style: { width: width, height: height } }) : loadingCom)));
 };
 exports.default = ChartArmor;
 //# sourceMappingURL=index.js.map
