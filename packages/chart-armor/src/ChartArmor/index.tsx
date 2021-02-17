@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
 import DefaultLoading from '../DefaultLoading';
-import { CHART_HEIGHT, CHART_WIDTH } from './constants';
+import { DEFAULT_CHART_HEIGHT, DEFAULT_CHART_WIDTH } from './constants';
 import { IChartArmorProps } from './types';
 
 const ChartArmor: FC<IChartArmorProps> = function ({ render, data, loadingCom }) {
@@ -14,11 +14,14 @@ const ChartArmor: FC<IChartArmorProps> = function ({ render, data, loadingCom })
     <div>
       <div
         style={{
-          width: CHART_WIDTH,
-          height: CHART_HEIGHT,
+          width: DEFAULT_CHART_WIDTH,
+          height: DEFAULT_CHART_HEIGHT,
         }}>
         {data ? (
-          <div ref={chartRef} style={{ width: CHART_WIDTH, height: CHART_HEIGHT }} />
+          <div
+            ref={chartRef}
+            style={{ width: DEFAULT_CHART_WIDTH, height: DEFAULT_CHART_HEIGHT }}
+          />
         ) : (
           <DefaultLoading />
         )}

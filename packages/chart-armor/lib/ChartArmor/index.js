@@ -34,9 +34,9 @@ const ChartArmor = function ({ render, data, loadingCom }) {
     }, [data]);
     return (react_1.default.createElement("div", null,
         react_1.default.createElement("div", { style: {
-                width: constants_1.CHART_WIDTH,
-                height: constants_1.CHART_HEIGHT,
-            } }, data ? (react_1.default.createElement("div", { ref: chartRef, style: { width: constants_1.CHART_WIDTH, height: constants_1.CHART_HEIGHT } })) : (react_1.default.createElement(DefaultLoading_1.default, null)))));
+                width: constants_1.DEFAULT_CHART_WIDTH,
+                height: constants_1.DEFAULT_CHART_HEIGHT,
+            } }, data ? (react_1.default.createElement("div", { ref: chartRef, style: { width: constants_1.DEFAULT_CHART_WIDTH, height: constants_1.DEFAULT_CHART_HEIGHT } })) : (react_1.default.createElement(DefaultLoading_1.default, null)))));
 };
 exports.default = ChartArmor;
 //# sourceMappingURL=index.js.map
