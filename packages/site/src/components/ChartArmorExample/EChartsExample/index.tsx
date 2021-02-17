@@ -1,10 +1,14 @@
 import ChartArmor from 'chart-armor';
 import React, { FC } from 'react';
 import * as echarts from 'echarts';
+import { CHART_HEIGHT, CHART_WIDTH } from '../../../constants';
 
-const ChartArmorExample: FC<{ data: any }> = function ({ data }) {
+const EChartsExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
+      data={data}
+      width={CHART_WIDTH}
+      height={CHART_HEIGHT}
       render={(dom, data) => {
         const chart = echarts.init(dom);
         chart.setOption({
@@ -25,9 +29,8 @@ const ChartArmorExample: FC<{ data: any }> = function ({ data }) {
           ],
         });
       }}
-      data={data}
     />
   );
 };
 
-export default ChartArmorExample;
+export default EChartsExample;

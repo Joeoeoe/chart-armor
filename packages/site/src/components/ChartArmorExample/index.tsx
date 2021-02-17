@@ -1,13 +1,13 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { FC, Fragment, useEffect, useState } from 'react';
 import { mockLoading } from '../../utils';
-import D3PureExample from './components/D3PureExample';
-import EChartsPureExample from './components/EChartsPureExample';
-import G2PlotPureExample from './components/G2PlotPureExample';
-import G2PureExample from './components/G2PureExample';
-import HighchartsPureExample from './components/HighchartsPureExample';
 import styles from '../index.module.less';
+import D3Example from './D3Example';
+import EChartsExample from './EChartsExample';
+import G2Example from './G2Example';
+import G2PlotExample from './G2PlotExample';
+import HighchartsExample from './HighchartsExample';
 
-const PureExample = function () {
+const ChartArmorExample: FC<any> = function () {
   // d3 mock数据
   const [d3DataList, setD3DataList] = useState(new Array(2).fill(null));
   // echarts mock数据
@@ -145,43 +145,42 @@ const PureExample = function () {
 
     fetchData();
   }, []);
-
   return (
     <Fragment>
-      <h1 style={{ marginBottom: 16 }}>RawExampleWithProps</h1>
+      <h1 style={{ marginBottom: 16 }}>ChartArmorUseExample</h1>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         <div className={styles['chart-wrapper']}>
           <h2>d3</h2>
           {d3DataList.map((data, i) => (
-            <D3PureExample data={data} key={i} />
+            <D3Example data={data} key={i} />
           ))}
         </div>
 
         <div className={styles['chart-wrapper']}>
           <h2>echarts</h2>
           {echartsDataList.map((data, i) => {
-            return <EChartsPureExample data={data} key={i} />;
+            return <EChartsExample data={data} key={i} />;
           })}
         </div>
 
         <div className={styles['chart-wrapper']}>
           <h2>G2</h2>
           {g2DataList.map((data, i) => {
-            return <G2PureExample data={data} key={i} />;
+            return <G2Example data={data} key={i} />;
           })}
         </div>
 
         <div className={styles['chart-wrapper']}>
           <h2>G2Plot</h2>
           {g2PlotDataList.map((data, i) => {
-            return <G2PlotPureExample data={data} key={i} />;
+            return <G2PlotExample data={data} key={i} />;
           })}
         </div>
 
         <div className={styles['chart-wrapper']}>
           <h2>Highcharts</h2>
           {highchartsDataList.map((data, i) => {
-            return <HighchartsPureExample data={data} key={i} />;
+            return <HighchartsExample data={data} key={i} />;
           })}
         </div>
       </div>
@@ -189,4 +188,4 @@ const PureExample = function () {
   );
 };
 
-export default PureExample;
+export default ChartArmorExample;
