@@ -13,3 +13,5 @@
 - [x] 自定义LoadingCom支持
 - [x] 使用dom，而不是使用ref.current
 - [ ] 文档编写
+- [ ] 图表库页面生成
+- [ ] svg与div容器选择支持
