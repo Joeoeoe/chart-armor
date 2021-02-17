@@ -1,4 +1,4 @@
-import ChartArmor from 'chart-armor';
+import ChartArmor, { CONTAINER_TYPE } from 'chart-armor';
 import * as d3 from 'd3';
 import React, { FC } from 'react';
 import { CHART_HEIGHT, CHART_WIDTH } from '../../../constants';
@@ -9,6 +9,7 @@ const D3Example: FC<{ data }> = function ({ data }) {
       data={data}
       width={CHART_WIDTH}
       height={CHART_HEIGHT}
+      containerType={CONTAINER_TYPE.SVG}
       render={(dom, data) => {
         console.log(data);
         const width = CHART_WIDTH,
@@ -19,7 +20,6 @@ const D3Example: FC<{ data }> = function ({ data }) {
         // 插入g容器
         const g = d3
           .select(dom)
-          .append('svg')
           .attr('width', width)
           .attr('height', height)
           .append('g')
