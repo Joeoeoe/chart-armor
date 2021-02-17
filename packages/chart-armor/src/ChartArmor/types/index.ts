@@ -1,4 +1,4 @@
-import React, { MutableRefObject } from 'react';
+import React from 'react';
 
 export interface IChartArmorProps {
   render: (ref: HTMLElement, data) => any;

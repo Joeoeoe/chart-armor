@@ -5,3 +5,4 @@ webpack.dev.js
 webpack.prod.js
 postcss.config.js
 lib
+.eslintrc.js
