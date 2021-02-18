@@ -49,7 +49,7 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
     return <EChartsExample data={data} key={i} />;
 })}
 ```
-![](../chart-armor/static/image/echarts-example.gif)
+![](https://github.com/Joeoeoe/chart-armor/blob/master/static/image/echarts-example.gif?raw=true)
 
 对比：自行封装相同功能的React图表组件
 ```tsx
