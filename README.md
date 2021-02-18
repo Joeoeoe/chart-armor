@@ -128,7 +128,7 @@ export default EChartsPureExample;
 - [x] 自定义LoadingCom支持
 - [x] 使用dom，而不是使用ref.current
 - [x] svg与div容器选择支持
-- [ ] 文档编写
+- [x] 文档编写
 - [ ] 根据ChartArmor直接生成图表库页面
 
 # What's more?
