@@ -129,7 +129,9 @@ export default EChartsPureExample;
 - [x] 使用dom，而不是使用ref.current
 - [x] svg与div容器选择支持
 - [x] 文档编写
-- [ ] 根据ChartArmor直接生成图表库页面
+- [ ] 图表错误捕获
+- [ ] 图表数据读取超时捕获
+- [ ] 根据ChartArmor直接生成图表库页面，计划使用storybook，并支持实时data输入改变
 
 # What's more?
 是否有更多的需求呢，欢迎提issue
