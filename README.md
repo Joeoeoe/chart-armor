@@ -1,3 +1,6 @@
+# 注意
+此组件库还在开发测试中，请勿用于生产环境。
+
 # 介绍
 **ChartArmor是一个帮助你基于原生图表代码构建React图表库的库。**
 
@@ -126,6 +129,7 @@ export default EChartsPureExample;
 - [x] 使用dom，而不是使用ref.current
 - [x] svg与div容器选择支持
 - [ ] 文档编写
-- [ ] 图表库页面直接生成
+- [ ] 根据ChartArmor直接生成图表库页面
 
 # What's more?
+是否有更多的需求呢，欢迎提issue
