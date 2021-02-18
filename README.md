@@ -131,7 +131,7 @@ export default EChartsPureExample;
 - [x] 文档编写
 - [ ] 图表错误捕获
 - [ ] 图表数据读取超时捕获
-- [ ] 根据ChartArmor直接生成图表库页面，计划使用storybook，并支持实时data输入改变
+- [ ] 根据ChartArmor直接生成图表库页面，计划基于storybook。通过chart-armor-cli、chart-armor-addon支持使用
 
 # What's more?
 是否有更多的需求呢，欢迎提issue
