@@ -1,16 +1,16 @@
 # 介绍
-ChartArmor是一个帮助你构建自己的React图表库的库。
+**ChartArmor是一个帮助你基于原生图表代码构建React图表库的库。**
 
 如果在React中想要使用图表库一般有两种方法：
-* 方法一：使用涉及DOM操作的原生图表库（比如D3、ECharts、G2等），但需要利用ref指向DOM容器，做好生命周期相关的处理，防止重复渲染等等。若经验不足可能开发速度较慢、可维护性较差；
-* 方法二：直接使用经封装的React可视化库（比如Recharts、BizCharts等），但这些React库很多是基于原生图表库封装的（比如Rechaarts基于D3、BizCharts基于G2），意味着可能无法使用原生图表库的最新特性，灵活性也可能比不上原生图表库。
+* 方法一：使用涉及DOM操作的原生图表库（比如D3、ECharts、G2等），但需要利用ref指向DOM容器，做好生命周期相关的处理，防止重复渲染等等。**若经验不足可能开发速度较慢、可维护性较差**。
+* 方法二：直接使用经封装的React可视化库（比如Recharts、BizCharts等），但这些React库很多是基于原生图表库封装的（比如Rechaarts基于D3、BizCharts基于G2），意味着**可能无法使用原生图表库的最新特性，灵活性也可能比不上原生图表库**。
 
-ChartArmor的设想就是将以上两种方法中和，**ChartArmor提供React组件解决ref、重复渲染等等的脏活，组件提供render接口供原生图表库绘制图表**。如此各种原生图表库的demo代码均可直接“复制粘贴”使用，提升开发效率
+ChartArmor的设想就是将以上两种方法中和：**ChartArmor提供React组件解决ref、重复渲染等等的脏活，提供render接口供原生图表库绘制图表**。
 
-![](./assets/test.png)
+如此各种原生图表库的demo代码均可直接“复制粘贴”使用，提升开发效率。
 
 # 示例
-使用ChartArmor
+使用ChartArmor封装
 ```tsx
 // EChartsExample.tsx
 const EChartsExample: FC<{ data: any }> = function ({ data }) {
@@ -49,18 +49,76 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
     return <EChartsExample data={data} key={i} />;
 })}
 ```
+![](../chart-armor/static/image/echarts-example.gif)
 
+对比：自行封装相同功能的React图表组件
+```tsx
+const EChartsPureExample: FC<{ data: any }> = function ({ data }) {
+  const chartRef = useRef(null);
+  useEffect(() => {
+    if (data) {
+      const chart = echarts.init(chartRef.current);
+      chart.setOption({
+        title: {
+          text: 'ECharts example',
+        },
+        tooltip: {},
+        xAxis: {
+          data: data.dataX,
+        },
+        yAxis: {},
+        series: [
+          {
+            name: '销量',
+            type: 'bar',
+            data: data.dataY,
+          },
+        ],
+      });
+    }
+  }, [data]);
 
+  return (
+    <div>
+      <div
+        style={{
+          width: CHART_WIDTH,
+          height: CHART_HEIGHT,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        {data ? (
+          <div ref={chartRef} style={{ width: CHART_WIDTH, height: CHART_HEIGHT }}></div>
+        ) : (
+          <Loading />
+        )}
+      </div>
+    </div>
+  );
+};
 
-# 理想使用方式
-1. 复制粘贴原生代码，传入data即可在React中渲染图表。data格式与原生代码匹配
-2. 封装好loading，并开放接口支持自定义
+export default EChartsPureExample;
+```
 
-# props
-| props      | 是否必填 | 解释                                                |
-| ---------- | -------- | --------------------------------------------------- |
-| render     | 是       | (ref, data) => { render code} 。渲染图表代码        |
-| loadingCom | 否       | 自定义loading组件，无数据时边框大小由loadingCom决定 |
+# 什么时候可以使用ChartArmor？
+如果您符合以下几种情况，您可以考虑使用ChartArmor：
+* 图表复杂，个性化需求多，多个项目同时使用图表，需要构建一个统一的图表库。
+* 对React不熟悉，想要快速使用原生图表库在React中插入图表。
+
+如果您是以下几种情况，您不需要使用ChartArmor：
+* 图表简单，现成的React图表库能满足所有需求。
+* 图表需求少。
+
+# API
+| props         | 类型                                     | 默认值             | 说明                                                        |
+| ------------- | ---------------------------------------- | ------------------ | ----------------------------------------------------------- |
+| render*       | (dom, data) => any                       | -                  | 渲染图表代码，dom为图表容器，data为图表所需数据             |
+| data*         | any                                      | -                  | 渲染图表时所用数据，data为空值时ChartArmor显示loading       |
+| width         | number                                   | 500                | 图表宽度                                                    |
+| height        | number                                   | 300                | 图表高度                                                    |
+| loadingCom    | ReactChild                               | -                  | 自定义loading组件，无数据时边框大小由loadingCom决定         |
+| containerType | CONTAINER_TYPE.DIV \| CONTAINER_TYPE.SVG | CONTAINER_TYPE.DIV | 图表容器是div或svg，某些图表库主要使用svg绘制图表（例如d3） |
 
 # TODO
 - [x] 宽度与高度规划
@@ -68,5 +126,6 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
 - [x] 使用dom，而不是使用ref.current
 - [x] svg与div容器选择支持
 - [ ] 文档编写
-- [ ] 图表库页面生成
+- [ ] 图表库页面直接生成
 
+# What's more?
