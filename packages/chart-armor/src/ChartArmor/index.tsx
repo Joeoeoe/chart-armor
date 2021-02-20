@@ -9,6 +9,7 @@ const ChartArmor: FC<IChartArmorProps> = function ({
   render,
   data,
   loadingCom = <DefaultLoading />,
+  errorCom = <DefaultErrorTip />,
   width = DEFAULT_CHART_WIDTH,
   height = DEFAULT_CHART_HEIGHT,
   containerType = CONTAINER_TYPE.DIV,
@@ -36,7 +37,7 @@ const ChartArmor: FC<IChartArmorProps> = function ({
 
   return hasError ? (
     <Wrapper width={width} height={height}>
-      <DefaultErrorTip />
+      {errorCom}
     </Wrapper>
   ) : (
     <Wrapper width={width} height={height}>

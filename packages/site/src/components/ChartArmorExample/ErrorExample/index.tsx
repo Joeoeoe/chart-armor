@@ -9,8 +9,9 @@ const ErrorExample: FC<{ data: any }> = function ({ data }) {
       data={data}
       width={CHART_WIDTH}
       height={CHART_HEIGHT}
+      errorCom={<p>error test</p>}
       render={(dom, data) => {
-        throw new Error("error test");
+        throw new Error('error test');
         const chart = echarts.init(dom);
         chart.setOption({
           title: {

@@ -6,5 +6,6 @@ export interface IChartArmorProps {
     width?: number;
     height?: number;
     loadingCom?: React.ReactChild;
+    errorCom?: React.ReactChild;
     containerType?: CONTAINER_TYPE;
 }
