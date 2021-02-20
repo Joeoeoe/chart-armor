@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css';
 import PureExample from './components/PureExample';
 import ChartArmorExample from './components/ChartArmorExample';
-// import LibraryExample from './components/LibraryExample';
 
 function App() {
   return (

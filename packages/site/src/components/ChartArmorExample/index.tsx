@@ -3,6 +3,7 @@ import { mockLoading } from '../../utils';
 import styles from '../index.module.less';
 import D3Example from './D3Example';
 import EChartsExample from './EChartsExample';
+import ErrorExample from './ErrorExample';
 import G2Example from './G2Example';
 import G2PlotExample from './G2PlotExample';
 import HighchartsExample from './HighchartsExample';
@@ -160,6 +161,13 @@ const ChartArmorExample: FC<any> = function () {
           <h2>echarts</h2>
           {echartsDataList.map((data, i) => {
             return <EChartsExample data={data} key={i} />;
+          })}
+        </div>
+
+        <div className={styles['chart-wrapper']}>
+          <h2>error example</h2>
+          {echartsDataList.map((data, i) => {
+            return <ErrorExample data={data} key={i} />;
           })}
         </div>
 

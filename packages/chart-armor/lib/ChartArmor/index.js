@@ -23,21 +23,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
-const DefaultLoading_1 = __importDefault(require("../DefaultLoading"));
+const Wrapper_1 = __importDefault(require("../components/Wrapper"));
+const DefaultErrorTip_1 = __importDefault(require("../components/DefaultErrorTip"));
+const DefaultLoading_1 = __importDefault(require("../components/DefaultLoading"));
 const constants_1 = require("./constants");
 const ChartArmor = function ({ render, data, loadingCom = react_1.default.createElement(DefaultLoading_1.default, null), width = constants_1.DEFAULT_CHART_WIDTH, height = constants_1.DEFAULT_CHART_HEIGHT, containerType = constants_1.CONTAINER_TYPE.DIV, }) {
     const chartRef = react_1.useRef(null);
+    const [hasError, setHasError] = react_1.useState(false);
     react_1.useEffect(() => {
-        if (data) {
-            render(chartRef.current, data);
+        try {
+            if (data) {
+                render(chartRef.current, data);
+            }
+            setHasError(false);
+        }
+        catch (error) {
+            console.error(error);
+            setHasError(true);
         }
     }, [data]);
     const container = containerType === constants_1.CONTAINER_TYPE.SVG ? (react_1.default.createElement("svg", { ref: chartRef, style: { width: width, height: height } })) : (react_1.default.createElement("div", { ref: chartRef, style: { width: width, height: height } }));
-    return (react_1.default.createElement("div", null,
-        react_1.default.createElement("div", { style: {
-                width: width,
-                height: height,
-            } }, data ? container : loadingCom)));
+    return hasError ? (react_1.default.createElement(Wrapper_1.default, { width: width, height: height },
+        react_1.default.createElement(DefaultErrorTip_1.default, null))) : (react_1.default.createElement(Wrapper_1.default, { width: width, height: height }, data ? container : loadingCom));
 };
 exports.default = ChartArmor;
 //# sourceMappingURL=index.js.map

@@ -1,5 +1,7 @@
-import React, { FC, useEffect, useRef } from 'react';
-import DefaultLoading from '../DefaultLoading';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import Wrapper from '../components/Wrapper';
+import DefaultErrorTip from '../components/DefaultErrorTip';
+import DefaultLoading from '../components/DefaultLoading';
 import { CONTAINER_TYPE, DEFAULT_CHART_HEIGHT, DEFAULT_CHART_WIDTH } from './constants';
 import { IChartArmorProps } from './types';
 
@@ -12,9 +14,16 @@ const ChartArmor: FC<IChartArmorProps> = function ({
   containerType = CONTAINER_TYPE.DIV,
 }) {
   const chartRef = useRef(null);
+  const [hasError, setHasError] = useState<boolean>(false);
   useEffect(() => {
-    if (data) {
-      render(chartRef.current, data);
+    try {
+      if (data) {
+        render(chartRef.current, data);
+      }
+      setHasError(false);
+    } catch (error) {
+      console.error(error);
+      setHasError(true);
     }
   }, [data]);
 
@@ -25,16 +34,14 @@ const ChartArmor: FC<IChartArmorProps> = function ({
       <div ref={chartRef} style={{ width: width, height: height }}></div>
     );
 
-  return (
-    <div>
-      <div
-        style={{
-          width: width,
-          height: height,
-        }}>
-        {data ? container : loadingCom}
-      </div>
-    </div>
+  return hasError ? (
+    <Wrapper width={width} height={height}>
+      <DefaultErrorTip />
+    </Wrapper>
+  ) : (
+    <Wrapper width={width} height={height}>
+      {data ? container : loadingCom}
+    </Wrapper>
   );
 };
 
