@@ -29,8 +29,11 @@ const DefaultLoading_1 = __importDefault(require("../components/DefaultLoading")
 const constants_1 = require("./constants");
 const ChartArmor = function ({ render, data, loadingCom = react_1.default.createElement(DefaultLoading_1.default, null), errorCom = react_1.default.createElement(DefaultErrorTip_1.default, null), containerWidth = constants_1.DEFAULT_CHART_WIDTH, containerHeight = constants_1.DEFAULT_CHART_HEIGHT, containerType = constants_1.CONTAINER_TYPE.DIV, }) {
     const chartRef = react_1.useRef(null);
+    const dataRef = react_1.useRef(null);
     const [hasError, setHasError] = react_1.useState(false);
+    // TODO 使用策略模式渲染，不然状态较多
     react_1.useEffect(() => {
+        dataRef.current = data;
         try {
             if (data) {
                 render(chartRef.current, data);

@@ -15,8 +15,12 @@ const ChartArmor: FC<IChartArmorProps> = function ({
   containerType = CONTAINER_TYPE.DIV,
 }) {
   const chartRef = useRef(null);
+  const dataRef = useRef(null);
   const [hasError, setHasError] = useState<boolean>(false);
+
+  // TODO 使用策略模式渲染，不然状态较多
   useEffect(() => {
+    dataRef.current = data;
     try {
       if (data) {
         render(chartRef.current, data);
