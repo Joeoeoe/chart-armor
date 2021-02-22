@@ -3,8 +3,8 @@ import { CONTAINER_TYPE } from '../constants';
 export interface IChartArmorProps {
     render: (dom: HTMLElement, data: any) => any;
     data: any;
-    width?: number;
-    height?: number;
+    containerWidth?: number;
+    containerHeight?: number;
     loadingCom?: React.ReactChild;
     errorCom?: React.ReactChild;
     containerType?: CONTAINER_TYPE;

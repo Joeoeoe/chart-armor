@@ -7,8 +7,8 @@ const HighchartsExample: FC<{ data }> = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
+      containerWidth={CHART_WIDTH}
+      containerHeight={CHART_HEIGHT}
       render={(dom, data) => {
         Highcharts.chart(dom, {
           chart: {

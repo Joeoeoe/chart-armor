@@ -27,7 +27,7 @@ const Wrapper_1 = __importDefault(require("../components/Wrapper"));
 const DefaultErrorTip_1 = __importDefault(require("../components/DefaultErrorTip"));
 const DefaultLoading_1 = __importDefault(require("../components/DefaultLoading"));
 const constants_1 = require("./constants");
-const ChartArmor = function ({ render, data, loadingCom = react_1.default.createElement(DefaultLoading_1.default, null), errorCom = react_1.default.createElement(DefaultErrorTip_1.default, null), width = constants_1.DEFAULT_CHART_WIDTH, height = constants_1.DEFAULT_CHART_HEIGHT, containerType = constants_1.CONTAINER_TYPE.DIV, }) {
+const ChartArmor = function ({ render, data, loadingCom = react_1.default.createElement(DefaultLoading_1.default, null), errorCom = react_1.default.createElement(DefaultErrorTip_1.default, null), containerWidth = constants_1.DEFAULT_CHART_WIDTH, containerHeight = constants_1.DEFAULT_CHART_HEIGHT, containerType = constants_1.CONTAINER_TYPE.DIV, }) {
     const chartRef = react_1.useRef(null);
     const [hasError, setHasError] = react_1.useState(false);
     react_1.useEffect(() => {
@@ -42,8 +42,8 @@ const ChartArmor = function ({ render, data, loadingCom = react_1.default.create
             setHasError(true);
         }
     }, [data]);
-    const container = containerType === constants_1.CONTAINER_TYPE.SVG ? (react_1.default.createElement("svg", { ref: chartRef, style: { width: width, height: height } })) : (react_1.default.createElement("div", { ref: chartRef, style: { width: width, height: height } }));
-    return hasError ? (react_1.default.createElement(Wrapper_1.default, { width: width, height: height }, errorCom)) : (react_1.default.createElement(Wrapper_1.default, { width: width, height: height }, data ? container : loadingCom));
+    const container = containerType === constants_1.CONTAINER_TYPE.SVG ? (react_1.default.createElement("svg", { ref: chartRef, style: { width: containerWidth, height: containerHeight } })) : (react_1.default.createElement("div", { ref: chartRef, style: { width: containerWidth, height: containerHeight } }));
+    return hasError ? (react_1.default.createElement(Wrapper_1.default, { width: containerWidth, height: containerHeight }, errorCom)) : (react_1.default.createElement(Wrapper_1.default, { width: containerWidth, height: containerHeight }, data ? container : loadingCom));
 };
 exports.default = ChartArmor;
 //# sourceMappingURL=index.js.map

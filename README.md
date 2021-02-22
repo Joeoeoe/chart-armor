@@ -20,8 +20,8 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
+      containerWidth={CHART_WIDTH}
+      containerHeight={CHART_HEIGHT}
       render={(dom, data) => {
         // 图表渲染代码
         const chart = echarts.init(dom);
@@ -114,15 +114,15 @@ export default EChartsPureExample;
 * 图表需求少。
 
 # API
-| props         | 类型                                     | 默认值              | 说明                                                        |
-| ------------- | ---------------------------------------- | ------------------- | ----------------------------------------------------------- |
-| render*       | (dom, data) => any                       | -                   | 渲染图表代码，dom为图表容器，data为图表所需数据             |
-| data*         | any                                      | -                   | 渲染图表时所用数据，data为空值时ChartArmor显示loading       |
-| width         | number                                   | 500                 | 图表宽度                                                    |
-| height        | number                                   | 300                 | 图表高度                                                    |
-| loadingCom    | ReactChild                               | <DefaultLoading />  | 自定义loading时的提示                                       |
-| errorCom      | ReactChild                               | <DefaultErrorTip /> | 自定义error时的提示                                         |
-| containerType | CONTAINER_TYPE.DIV \| CONTAINER_TYPE.SVG | CONTAINER_TYPE.DIV  | 图表容器是div或svg，某些图表库主要使用svg绘制图表（例如d3） |
+| props           | 类型                                     | 默认值              | 说明                                                        |
+| --------------- | ---------------------------------------- | ------------------- | ----------------------------------------------------------- |
+| render*         | (dom, data) => any                       | -                   | 渲染图表代码，dom为图表容器，data为图表所需数据             |
+| data*           | any                                      | -                   | 渲染图表时所用数据，data为空值时ChartArmor显示loading       |
+| containerWidth  | number                                   | 500                 | 图表容器宽度，一般可和图表宽度相同                          |
+| containerHeight | number                                   | 300                 | 图表容器高度，一般可和图表高度相同                          |
+| loadingCom      | ReactChild                               | <DefaultLoading />  | 自定义loading时的提示                                       |
+| errorCom        | ReactChild                               | <DefaultErrorTip /> | 自定义error时的提示                                         |
+| containerType   | CONTAINER_TYPE.DIV \| CONTAINER_TYPE.SVG | CONTAINER_TYPE.DIV  | 图表容器是div或svg，某些图表库主要使用svg绘制图表（例如d3） |
 
 # TODO
 - [x] 宽度与高度规划
@@ -133,8 +133,8 @@ export default EChartsPureExample;
 - [x] 图表错误捕获
 - [x] 图表错误捕获文档编写
 - [ ] 图表数据读取超时捕获
-- [ ] 根据ChartArmor直接生成图表库页面，计划基于storybook。通过chart-armor-cli、chart-armor-addon支持使用
 - [ ] render增加chartProperty属性，供图表属性配置
+- [ ] 根据ChartArmor直接生成图表库页面，计划基于storybook。通过chart-armor-cli、chart-armor-addon支持使用
 - [ ] storybook可否配上代码生成
 - [ ] storybook可否配上输入数据生成图表推荐
 

@@ -10,8 +10,8 @@ const ChartArmor: FC<IChartArmorProps> = function ({
   data,
   loadingCom = <DefaultLoading />,
   errorCom = <DefaultErrorTip />,
-  width = DEFAULT_CHART_WIDTH,
-  height = DEFAULT_CHART_HEIGHT,
+  containerWidth = DEFAULT_CHART_WIDTH,
+  containerHeight = DEFAULT_CHART_HEIGHT,
   containerType = CONTAINER_TYPE.DIV,
 }) {
   const chartRef = useRef(null);
@@ -30,17 +30,17 @@ const ChartArmor: FC<IChartArmorProps> = function ({
 
   const container =
     containerType === CONTAINER_TYPE.SVG ? (
-      <svg ref={chartRef} style={{ width: width, height: height }}></svg>
+      <svg ref={chartRef} style={{ width: containerWidth, height: containerHeight }}></svg>
     ) : (
-      <div ref={chartRef} style={{ width: width, height: height }}></div>
+      <div ref={chartRef} style={{ width: containerWidth, height: containerHeight }}></div>
     );
 
   return hasError ? (
-    <Wrapper width={width} height={height}>
+    <Wrapper width={containerWidth} height={containerHeight}>
       {errorCom}
     </Wrapper>
   ) : (
-    <Wrapper width={width} height={height}>
+    <Wrapper width={containerWidth} height={containerHeight}>
       {data ? container : loadingCom}
     </Wrapper>
   );

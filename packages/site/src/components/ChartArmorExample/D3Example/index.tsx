@@ -7,8 +7,8 @@ const D3Example: FC<{ data }> = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
+      containerWidth={CHART_WIDTH}
+      containerHeight={CHART_HEIGHT}
       containerType={CONTAINER_TYPE.SVG}
       render={(dom, data) => {
         console.log(data);

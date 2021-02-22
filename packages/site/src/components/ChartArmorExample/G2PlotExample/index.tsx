@@ -7,8 +7,8 @@ const G2PlotExample: FC<{ data }> = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
+      containerWidth={CHART_WIDTH}
+      containerHeight={CHART_HEIGHT}
       render={(dom, data) => {
         const bar = new Bar(dom, {
           data,

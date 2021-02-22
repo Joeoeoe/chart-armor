@@ -7,8 +7,8 @@ const ErrorExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
+      containerWidth={CHART_WIDTH}
+      containerHeight={CHART_HEIGHT}
       errorCom={<p>error test</p>}
       render={(dom, data) => {
         throw new Error('error test');

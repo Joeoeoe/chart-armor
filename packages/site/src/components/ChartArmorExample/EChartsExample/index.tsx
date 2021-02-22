@@ -7,8 +7,8 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      width={CHART_WIDTH}
-      height={CHART_HEIGHT}
+      containerWidth={CHART_WIDTH}
+      containerHeight={CHART_HEIGHT}
       render={(dom, data) => {
         const chart = echarts.init(dom);
         chart.setOption({
