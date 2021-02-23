@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
     'prettier', //eslint-config-prettier，将与代码格式化相关的规则忽略，将使用prettier-eslint与prettier结合
   ],
   parserOptions: {
@@ -39,6 +40,6 @@ module.exports = {
     'prettier/prettier': 'error', // 配合eslint-plugin-prettier，设置提醒类型， 使.prettierc.js整合到eslint，prettier-eslint可以把prettier的format整合到 eslint --fix中
     'react/prop-types': 'off', // 有ts了，不需要react proptypes
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': 'error'
+    '@typescript-eslint/no-unused-vars': 'error',
   },
 };

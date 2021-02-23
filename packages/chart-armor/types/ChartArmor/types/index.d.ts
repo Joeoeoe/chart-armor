@@ -5,7 +5,9 @@ export interface IChartArmorProps {
     data: any;
     containerWidth?: number;
     containerHeight?: number;
+    timeoutLimit?: number;
     loadingCom?: React.ReactChild;
     errorCom?: React.ReactChild;
+    timeoutCom?: React.ReactChild;
     containerType?: CONTAINER_TYPE;
 }

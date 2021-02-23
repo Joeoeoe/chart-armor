@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/components/DetaultTimeoutTip/index.tsx"],"names":[],"mappings":";;;;;AAAA,kDAAkC;AAElC,MAAM,iBAAiB,GAAY;IACjC,OAAO,CACL,uCACE,KAAK,EAAE;YACL,OAAO,EAAE,MAAM;YACf,cAAc,EAAE,QAAQ;YACxB,UAAU,EAAE,QAAQ;YACpB,MAAM,EAAE,MAAM;YACd,KAAK,EAAE,MAAM;SACd,iBAEG,CACP,CAAC;AACJ,CAAC,CAAC;AAEF,kBAAe,iBAAiB,CAAC"}

@@ -7,6 +7,7 @@ import ErrorExample from './ErrorExample';
 import G2Example from './G2Example';
 import G2PlotExample from './G2PlotExample';
 import HighchartsExample from './HighchartsExample';
+import TimeoutExample from './TimeoutExample';
 
 const ChartArmorExample: FC<any> = function () {
   // d3 mock数据
@@ -20,9 +21,12 @@ const ChartArmorExample: FC<any> = function () {
   // Highcharts mock数据
   const [highchartsDataList, setHighchartsDataList] = useState(new Array(2).fill(null));
 
+  // timeout mock数据源
+  const [timeoutDataList, setTimeoutDataList] = useState(new Array(2).fill(null));
+
   useEffect(() => {
     const fetchData = async function () {
-      await mockLoading();
+      await mockLoading(5000);
 
       setD3DataList([
         [
@@ -146,6 +150,24 @@ const ChartArmorExample: FC<any> = function () {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      await mockLoading(500000);
+
+      setTimeoutDataList([
+        {
+          dataX: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+          dataY: [5, 20, 36, 10, 10, 20],
+        },
+        {
+          dataX: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
+          dataY: [5, 20, 36, 10, 10, 20],
+        },
+      ]);
+    }
+  }, []);
+
   return (
     <Fragment>
       <h1 style={{ marginBottom: 16 }}>ChartArmorUseExample</h1>
@@ -161,13 +183,6 @@ const ChartArmorExample: FC<any> = function () {
           <h2>echarts</h2>
           {echartsDataList.map((data, i) => {
             return <EChartsExample data={data} key={i} />;
-          })}
-        </div>
-
-        <div className={styles['chart-wrapper']}>
-          <h2>error example</h2>
-          {echartsDataList.map((data, i) => {
-            return <ErrorExample data={data} key={i} />;
           })}
         </div>
 
@@ -189,6 +204,20 @@ const ChartArmorExample: FC<any> = function () {
           <h2>Highcharts</h2>
           {highchartsDataList.map((data, i) => {
             return <HighchartsExample data={data} key={i} />;
+          })}
+        </div>
+
+        <div className={styles['chart-wrapper']}>
+          <h2>error example</h2>
+          {echartsDataList.map((data, i) => {
+            return <ErrorExample data={data} key={i} />;
+          })}
+        </div>
+
+        <div className={styles['chart-wrapper']}>
+          <h2>timeout example</h2>
+          {timeoutDataList.map((data, i) => {
+            return <TimeoutExample data={data} key={i} />;
           })}
         </div>
       </div>

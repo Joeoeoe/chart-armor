@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const DefaultLoading = function () {
+const DefaultTimeoutTip: FC<any> = function () {
   return (
     <div
       style={{
@@ -10,9 +10,9 @@ const DefaultLoading = function () {
         height: '100%',
         width: '100%',
       }}>
-      Loading...
+      Timeout...
     </div>
   );
 };
 
-export default DefaultLoading;
+export default DefaultTimeoutTip;
