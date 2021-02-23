@@ -121,9 +121,9 @@ export default EChartsPureExample;
 | containerWidth  | number                                   | 500                   | 图表容器宽度，一般可和图表宽度相同                          |
 | containerHeight | number                                   | 300                   | 图表容器高度，一般可和图表高度相同                          |
 | timeoutLimit    | number                                   | 30000                 | 数据请求超时(timeout)时间，当数据获取超时时会出现超时提示   |
-| loadingCom      | ReactChild                               | <DefaultLoadingTip /> | 自定义loading时的提示                                       |
-| errorCom        | ReactChild                               | <DefaultErrorTip />   | 自定义error时的提示                                         |
-| timeoutCom      | ReactChild                               | <DefaultTimeoutTip /> | 自定义timeout时的提示                                       |
+| loadingCom      | ReactChild                               | \<DefaultLoadingTip /> | 自定义loading时的提示                                       |
+| errorCom        | ReactChild                               | \<DefaultErrorTip />   | 自定义error时的提示                                         |
+| timeoutCom      | ReactChild                               | \<DefaultTimeoutTip /> | 自定义timeout时的提示                                       |
 | containerType   | CONTAINER_TYPE.DIV \| CONTAINER_TYPE.SVG | CONTAINER_TYPE.DIV    | 图表容器是div或svg，某些图表库主要使用svg绘制图表（例如d3） |
 
 # TODO
