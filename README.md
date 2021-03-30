@@ -135,10 +135,10 @@ export default EChartsPureExample;
 - [x] 图表错误捕获
 - [x] 图表错误捕获文档编写
 - [x] 图表数据读取超时捕获
-~~render增加chartProperty属性，供图表属性配置。~~不需要，开发者有此需求可直接通过自行封装的组件控制
 - [ ] 根据ChartArmor直接生成图表库页面，计划基于storybook。通过chart-armor-cli、chart-armor-addon支持使用
 - [ ] storybook可否配上代码生成
 - [ ] storybook可否配上输入数据生成图表推荐
+- [ ] storybook图表性能分析
 
 # What's more?
 是否有更多的需求呢，欢迎提issue
