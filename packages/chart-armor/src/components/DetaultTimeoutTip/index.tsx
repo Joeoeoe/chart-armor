@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+const TIMEOUT_TEXT = 'Timeout...';
 const DefaultTimeoutTip: FC<any> = function () {
   return (
     <div
@@ -16,3 +17,4 @@ const DefaultTimeoutTip: FC<any> = function () {
 };
 
 export default DefaultTimeoutTip;
+export { TIMEOUT_TEXT };

@@ -48,6 +48,7 @@ const ChartArmor: FC<IChartArmorProps> = function ({
         setSataus(STATUS.COMPLETE);
       } catch (error) {
         console.error(error);
+
         setSataus(STATUS.ERROR);
       }
     }

@@ -1,5 +1,6 @@
 import React from 'react';
 
+const LOADING_TEXT = 'Loading...';
 const DefaultLoadingTip = function () {
   return (
     <div
@@ -10,9 +11,9 @@ const DefaultLoadingTip = function () {
         height: '100%',
         width: '100%',
       }}>
-      Loading...
+      {LOADING_TEXT}
     </div>
   );
 };
-
 export default DefaultLoadingTip;
+export { LOADING_TEXT };
