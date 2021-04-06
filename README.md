@@ -81,8 +81,18 @@ const SimpleExample = function () {
 ![](https://github.com/Joeoeoe/chart-armor/blob/master/static/image/echarts-example.gif?raw=true)
 
 # ChartArmor处理各个状态的依据主要是data props
+ChartArmor内部通过data控制当前状态，当data为null时状态为Loading，故推荐初始数据为null。
 
 ![](https://github.com/Joeoeoe/chart-armor/blob/master/static/image/ChartArmor-lifecycle-zn.jpg)
+
+五个状态解释如下：
+* Loading：data为null时状态为Loading，此时渲染Loading内容，对应prop为loadingCom
+* Achieve：data获取时状态为Achieve，此时开始调用render方法，无特定渲染内容。
+* Timeout：data获取超时状态转为Timeout（data为null时ChartArmor内部会开启计时），此时渲染Timeout内容，对应prop为timeoutCom。
+* Error：调用render方法出错时状态为Error，此时渲染Error内容，对应prop为errorCom
+* Complete：渲染完成状态为Complete。
+
+当状态为Error或Complete时，若重新设置data为null，状态会回至Loading，此时可请求新的数据。
 
 # 什么时候可以使用ChartArmor？
 如果您符合以下几种情况，您可以考虑使用ChartArmor：
@@ -115,7 +125,8 @@ const SimpleExample = function () {
 - [x] 图表错误捕获
 - [x] 图表错误捕获文档编写
 - [x] 图表数据读取超时捕获
-- [ ] 添加单元测试
+- [x] 添加单元测试
+- [ ] 超时的话如何进行处理？
 - [ ] 根据ChartArmor直接生成图表库页面，计划基于storybook。通过chart-armor-cli、chart-armor-addon支持使用
 - [ ] storybook可否配上代码生成
 - [ ] storybook可否配上输入数据生成图表推荐
