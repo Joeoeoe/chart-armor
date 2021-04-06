@@ -3,12 +3,14 @@ import React from 'react';
 import './App.css';
 import PureExample from './components/PureExample';
 import ChartArmorExample from './components/ChartArmorExample';
+import SimpleExample from './components/SimpleExample';
 
 function App() {
   return (
     <div>
       <PureExample />
       <ChartArmorExample />
+      <SimpleExample />
     </div>
   );
 }

@@ -59,66 +59,30 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
 ```
 
 ## 步骤二：使用图表组件
-```
-import EChartsExample from 'EChartsExample'
+**因为ChartArmor处理图表的依据是data，所以当无数据时需要置为null，故此处初始数据为null**
+```tsx
+const SimpleExample = function () {
+  // 初始数据为null
+  const [chartData, setChartData] = useState(null);
 
-<EChartsExample data={data} />;
+  useEffect(() => {
+    const fetchData = async function () {
+      const response = await requestData();
+
+      setChartData(response.data);
+    };
+
+    fetchData();
+  }, []);
+
+  return <EChartsExample data={chartData} />;
+};
 ```
 ![](https://github.com/Joeoeoe/chart-armor/blob/master/static/image/echarts-example.gif?raw=true)
 
-ChartArmor处理各个状态的依据主要是**data**接口：
+# ChartArmor处理各个状态的依据主要是data props
 
-
-
-对比：自行封装相同功能的React图表组件
-```tsx
-const EChartsPureExample: FC<{ data: any }> = function ({ data }) {
-  const chartRef = useRef(null);
-  useEffect(() => {
-    if (data) {
-      const chart = echarts.init(chartRef.current);
-      chart.setOption({
-        title: {
-          text: 'ECharts example',
-        },
-        tooltip: {},
-        xAxis: {
-          data: data.dataX,
-        },
-        yAxis: {},
-        series: [
-          {
-            name: '销量',
-            type: 'bar',
-            data: data.dataY,
-          },
-        ],
-      });
-    }
-  }, [data]);
-
-  return (
-    <div>
-      <div
-        style={{
-          width: CHART_WIDTH,
-          height: CHART_HEIGHT,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        {data ? (
-          <div ref={chartRef} style={{ width: CHART_WIDTH, height: CHART_HEIGHT }}></div>
-        ) : (
-          <Loading />
-        )}
-      </div>
-    </div>
-  );
-};
-
-export default EChartsPureExample;
-```
+![](https://github.com/Joeoeoe/chart-armor/blob/master/static/image/ChartArmor-lifecycle-zn.jpg)
 
 # 什么时候可以使用ChartArmor？
 如果您符合以下几种情况，您可以考虑使用ChartArmor：
@@ -130,17 +94,17 @@ export default EChartsPureExample;
 * 图表需求少。
 
 # API
-| props           | 类型                                     | 默认值                | 说明                                                        |
-| --------------- | ---------------------------------------- | --------------------- | ----------------------------------------------------------- |
-| render*         | (dom, data) => any                       | -                     | 渲染图表代码，dom为图表容器，data为图表所需数据             |
-| data*           | any                                      | -                     | 渲染图表时所用数据，data为空值时ChartArmor显示loading       |
-| containerWidth  | number                                   | 500                   | 图表容器宽度，一般可和图表宽度相同                          |
-| containerHeight | number                                   | 300                   | 图表容器高度，一般可和图表高度相同                          |
-| timeoutLimit    | number                                   | 30000                 | 数据请求超时(timeout)时间，当数据获取超时时会出现超时提示   |
+| props           | 类型                                     | 默认值                 | 说明                                                        |
+| --------------- | ---------------------------------------- | ---------------------- | ----------------------------------------------------------- |
+| render*         | (dom, data) => any                       | -                      | 渲染图表代码，dom为图表容器，data为图表所需数据             |
+| data*           | any                                      | -                      | 渲染图表时所用数据，data为空值时ChartArmor显示loading       |
+| containerWidth  | number                                   | 500                    | 图表容器宽度，一般可和图表宽度相同                          |
+| containerHeight | number                                   | 300                    | 图表容器高度，一般可和图表高度相同                          |
+| timeoutLimit    | number                                   | 30000                  | 数据请求超时(timeout)时间，当数据获取超时时会出现超时提示   |
 | loadingCom      | ReactChild                               | \<DefaultLoadingTip /> | 自定义loading时的提示                                       |
 | errorCom        | ReactChild                               | \<DefaultErrorTip />   | 自定义error时的提示                                         |
 | timeoutCom      | ReactChild                               | \<DefaultTimeoutTip /> | 自定义timeout时的提示                                       |
-| containerType   | CONTAINER_TYPE.DIV \| CONTAINER_TYPE.SVG | CONTAINER_TYPE.DIV    | 图表容器是div或svg，某些图表库主要使用svg绘制图表（例如d3） |
+| containerType   | CONTAINER_TYPE.DIV \| CONTAINER_TYPE.SVG | CONTAINER_TYPE.DIV     | 图表容器是div或svg，某些图表库主要使用svg绘制图表（例如d3） |
 
 # TODO
 - [x] 宽度与高度规划
