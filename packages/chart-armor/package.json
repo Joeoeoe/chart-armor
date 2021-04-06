@@ -12,7 +12,8 @@
     "test": "jest",
     "build": "tsc",
     "dev": "tsc --watch",
-    "lint": "npx eslint ./ --fix --ext .js,.jsx,.ts,.tsx",
+    "lint": "npx eslint ./  --ext .js,.jsx,.ts,.tsx",
+    "fix": "npx eslint ./ --fix --ext .js,.jsx,.ts,.tsx",
     "format": "npx prettier --write ."
   },
   "keywords": [],
