@@ -1,6 +1,6 @@
 {
   "name": "chart-armor-site",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.1-alpha.0",
   "description": "",
   "main": "index.js",
   "types": "global.d.ts",
@@ -62,7 +62,7 @@
     "@ant-design/charts": "^1.0.17",
     "@antv/g2": "^4.1.10",
     "@antv/g2plot": "^2.3.11",
-    "chart-armor": "^1.0.0-alpha.0",
+    "chart-armor": "^1.0.1-alpha.0",
     "core-js": "^3.8.3",
     "d3": "^6.5.0",
     "echarts": "^5.0.2",
