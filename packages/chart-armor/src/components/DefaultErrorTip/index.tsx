@@ -5,7 +5,7 @@ const DefaultErrorTip: FC<any> = function () {
   return (
     <div
       style={{
-        display: 'flex',
+        display: 'flex ',
         justifyContent: 'center',
         alignItems: 'center',
         height: '100%',
