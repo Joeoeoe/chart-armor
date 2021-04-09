@@ -1,14 +1,13 @@
 import ChartArmor from 'chart-armor';
-import React, { FC } from 'react';
-import { CHART_HEIGHT, CHART_WIDTH } from '../../constants';
+import React from 'react';
 import * as echarts from 'echarts';
 
-const EChartsExample: FC<{ data: any }> = function ({ data }) {
+const EChartsExample = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      containerWidth={CHART_WIDTH}
-      containerHeight={CHART_HEIGHT}
+      containerWidth={500}
+      containerHeight={300}
       render={(dom, data) => {
         // ECharts在原生DOM中使用的图表渲染代码
         const chart = echarts.init(dom);

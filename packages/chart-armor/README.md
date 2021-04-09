@@ -19,6 +19,8 @@ ChartArmor的设想就是将以上两种方法中和：**ChartArmor提供React�
 * 步骤一：使用ChartArmor封装React图表组件
 * 步骤二：使用图表组件
 
+
+线上示例：[CodeSandbox](https://codesandbox.io/s/cahrt-armor-example-njye4)
 ## 步骤一：使用ChartArmor封装
 安装：
 ```
@@ -26,16 +28,17 @@ npm install --save chart-armor
 ```
 
 ```tsx
-// EChartsExample.tsx
+// EChartsExample.jsx or EChartsExample.tsx
 import ChartArmor from 'chart-armor';
-//...
+import React from 'react';
+import * as echarts from 'echarts';
 
-const EChartsExample: FC<{ data: any }> = function ({ data }) {
+const EChartsExample = function ({ data }) {
   return (
     <ChartArmor
       data={data}
-      containerWidth={CHART_WIDTH}
-      containerHeight={CHART_HEIGHT}
+      containerWidth={500}
+      containerHeight={300}
       render={(dom, data) => {
         // ECharts在原生DOM中使用的图表渲染代码
         const chart = echarts.init(dom);
@@ -61,6 +64,7 @@ const EChartsExample: FC<{ data: any }> = function ({ data }) {
   );
 };
 
+export default EChartsExample;
 ```
 
 ## 步骤二：使用图表组件
