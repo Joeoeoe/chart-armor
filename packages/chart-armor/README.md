@@ -1,6 +1,3 @@
-# 注意
-此组件库还在开发测试中，请勿用于生产环境。
-
 # 介绍
 **ChartArmor是一个帮助你使用原生图表代码构建React图表库的React组件**，并且**自动处理了图表各个状态的呈现**，让开发者只需专注于图表开发。
 
@@ -23,8 +20,16 @@ ChartArmor的设想就是将以上两种方法中和：**ChartArmor提供React�
 * 步骤二：使用图表组件
 
 ## 步骤一：使用ChartArmor封装
+安装：
+```
+npm install --save chart-armor
+```
+
 ```tsx
 // EChartsExample.tsx
+import ChartArmor from 'chart-armor';
+//...
+
 const EChartsExample: FC<{ data: any }> = function ({ data }) {
   return (
     <ChartArmor
