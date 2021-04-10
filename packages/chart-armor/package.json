@@ -8,6 +8,7 @@
     "lib",
     "types"
   ],
+  "homepage": "https://github.com/Joeoeoe/chart-armor",
   "scripts": {
     "test": "jest",
     "build": "tsc",
